@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Destroy the Death Star</title>
+  <link href="css/template.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <h1>Destroy the Death Star</h1>
+    <h2>You have 10 seconds to destroy the death by clicking it</h2>
+    <h3>He may be protected by tie fighters..oops</h3>
+    <audio id="explosion">
+      <source src="audio/explosion.wav" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="victoryMusic">
+      <source src="audio/winner.wav" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <audio id="loserMusic">
+      <source src="audio/loser.wav" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+
+    <p id="clock"></p>
+    <img id="tie-fighter" src="img/tie-fighter.png" alt="tie-fighter" onClick="hitTarget()">
+    <img id="deathStar" src="img/deathStar.png" alt="death star" onClick="shoot()">
+    <div id="health-container">
+      <div id="health-bar">
+      </div>
+    </div>
+    <h2 id="status">GAME IN PROGRESS</h2>
+
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+
+</html>
