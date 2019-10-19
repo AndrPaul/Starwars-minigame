@@ -8,36 +8,46 @@
 </head>
 
 <body>
-  <div id="container">
+
+  <div id="container" onclick="play()">
     <h1>Destroy the Death Star</h1>
-    <h2>You have 10 seconds to destroy the death by clicking it</h2>
-    <h3>He may be protected by tie fighters..oops</h3>
-    <audio id="explosion">
-      <source src="audio/explosion.wav" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-
-    <audio id="victoryMusic">
-      <source src="audio/winner.wav" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-
-    <audio id="loserMusic">
-      <source src="audio/loser.wav" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-
-
-    <p id="clock"></p>
-    <img id="tie-fighter" src="img/tie-fighter.png" alt="tie-fighter" onClick="hitTarget()">
-    <img id="deathStar" src="img/deathStar.png" alt="death star" onClick="shoot()">
-    <div id="health-container">
-      <div id="health-bar">
+    <h4>You have 10 seconds to destroy the death by clicking it</h4>
+    <h4>He may be protected by tie fighters..oops</h4>
+    <button id="start" onclick="startGame()">
+      START GAME
+    </button>
+    <p id="clock">10</p>
+    <img id="shoot" src="img/shoot.gif" alt="">
+    <div id="enemies">
+      <img id="tie-fighter" class="fighter" src="img/tie-fighter.png" onClick="hitTarget()">
+      <img id="tie-fighter2" class="fighter" src="img/tie-fighter2.png" onClick="hitTarget()">
+      <img id="tie-fighter3" class="fighter" src="img/tie-fighter3.png" onClick="hitTarget()">
+      <img id="deathStar" src="img/deathStar.png" alt="death star" onClick="shoot()">
+      <h2 id="status"></h2>
+      <div id="health-container">
+        <div id="health-bar">
+        </div>
       </div>
+
     </div>
-    <h2 id="status">GAME IN PROGRESS</h2>
+
+
+
 
   </div>
+
+  <audio id="laser">
+    <source src="audio/laser.wav" type="audio/mpeg">
+  </audio>
+  <audio id="explosion">
+    <source src="audio/explosion.wav" type="audio/mpeg">
+  </audio>
+  <audio id="victoryMusic">
+    <source src="audio/winner.wav" type="audio/mpeg">
+  </audio>
+  <audio id="loserMusic">
+    <source src="audio/loser.wav" type="audio/mpeg">
+  </audio>
 
   <script src="js/game.js"></script>
 </body>

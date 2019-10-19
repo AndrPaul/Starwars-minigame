@@ -8,7 +8,12 @@ box-sizing: border-box;
 }
 
 
-
+#shoot {
+  display: none;
+  width: 55px;
+  height: 55px;
+  z-index: 4;
+}
 
 #clock {
     font-size: 40px;
@@ -18,21 +23,31 @@ box-sizing: border-box;
     font-family: Impact;
     font-weight: bold;
 }
-
-#tie-fighter {
-    position: absolute;
-    top: 50px;
-    left: 60px;
-    width: 200px;
-    display: none;
+#enemies {
+  position: relative;
+  width: 500px;
+  height: 330px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 audio {
   display: none;
 }
+button {
+  color: #861f1f;
+  padding: 10px 20px;
+  background-color: #FEE400;
+  border-radius: 10px;
+  font-weight: bold;
+  font-family: verdana;
+  border: 2px solid #861f1f;
+  cursor: url("../img/cursor.png"), auto;
+}
 
 body {
 
+    cursor: url("../img/cursor.png"), auto;
     padding: 0;
     margin: 0px;
     overflow: hidden;
@@ -53,21 +68,40 @@ body {
   color: #FEE400;
   text-shadow: 0px 3px #861f1f ;
   font-family: 'Rubik Mono One', sans-serif;
+}
+.fighter{
+  position: absolute;
+  top: 0;
+  left: 100px;
+  width: 210px;
+  display: none;
+  overflow: hidden;
+  z-index: 2;
+
+}
 
 
+#tie-fighter {
 
 }
 
 #deathStar {
-    height: 270px;
+  position: absolute;
+  top: 0;
+  left: 110px;
+    height: 300px;
+    z-index: 1;
 }
 
 #health-container {
+    position: absolute;
     width: 200px;
     height: 25px;
     background-color: white;
     margin: auto;
     border-radius: 10px;
+    left: 155px;
+    bottom: 0;
 }
 
 #health-bar {
