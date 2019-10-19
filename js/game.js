@@ -9,11 +9,17 @@ var healthContainer = document.getElementById('health-container');
 var health = document.getElementById('health-bar');
 var deathStarLocked = true;
 var hitTie = 0;
+var victorySound = document.getElementById('victoryMusic');
+var explosionSound = document.getElementById('explosionMusic');
+var losingSound = document.getElementById('loserMusic');
+
 dStar.draggable = false;
 tie.draggable = false;
 tie2.draggable = false;
 tie3.draggable = false;
-/* Display image on click position */
+
+
+/* Display image / Play sound on click position */
 document.onclick = userClicked;
    function userClicked() {
    var x = event.clientX - 17;
@@ -58,40 +64,33 @@ setInterval(function() {
   rotate(a);
 }, 1);
 
-/* Play Sound on Container Click
-function play() {
-  var shootSound = document.getElementById("shoot");
-  shootSound.play();
-};
-
- */
 
 
-/* Countdown */
-var timer;
-var timeOutput = document.getElementById('clock');
 
-function startGame() {
-  healthDeathStar = 100;
-  deathStarLocked = false;
-  var timeleft = 10;
-    timer = setInterval(function() {
-    timeOutput.innerHTML = timeleft;
-    timeleft -= 1;
-    if (timeleft === 0) {
-      clearInterval(timer);
-      deathStarLocked = true;
+/* Countdown timer*/
+var second = 15;
+var timeOutFunction;
+var timeOutput = document.getElementById('timer');
+timeOutput.innerHTML = second;
+function setTimer()
+{
+    second--;
+    timeOutput.innerHTML = second;
+    if(second <= 0){
+      clearInterval(timeOutFunction);
       timeOutput.innerHTML = "TIME'S UP! YOU LOST";
+      losingSound.play();
+      deathStarLocked = true;
       tie3.style.display = "none";
       tie2.style.display = "none";
       tie.style.display = "none";
-
-
     }
-  }, 1000);
+}
 
-};
-
+function startGame() {
+  deathStarLocked = false;
+  timeOutFunction = setInterval(setTimer, 1000);
+}
 
 
 
@@ -106,29 +105,29 @@ function shoot() {
       deathStarLocked = true;
     }
 
-    if (healthDeathStar == 60) {
+    if (healthDeathStar == 50) {
       tie2.style.display = "block";
       deathStarLocked = true;
     }
-    if (healthDeathStar == 40) {
+    if (healthDeathStar == 30) {
       tie3.style.display = "block";
       deathStarLocked = true;
     }
 
     if (healthDeathStar === 0) {
-      clearInterval(timer);
-      document.getElementById('deathStar').src = "img/dStarExplosion.gif";
+      clearInterval(timeOutFunction);
+      dStar.src = "img/dStarExplosion.gif";
       tie.style.display = 'none';
       tie2.style.display = 'none';
       tie3.style.display = 'none';
-      document.getElementById('explosion').play();
+      explosionSound.play();
       timeOutput.innerHTML = "YOU WON!";
       setTimeout(function() {
         dStar.style.display = 'none';
       }, 1500);
 
       setTimeout(function() {
-        document.getElementById('victoryMusic').play();
+        victorySound.play();
       }, 500);
     } else if (healthDeathStar <= 20) {
       health.style.background = "linear-gradient(90deg, rgba(121,9,9,1) 0%, rgba(255,12,0,1) 100%)";
@@ -140,13 +139,46 @@ function shoot() {
   }
 }
 
-function hitTarget() {
+function hitTieOne() {
   hitTie++;
-  if (hitTie == 3) {
-    document.getElementById('explosion').play();
-    tie3.style.display = "none";
-    tie2.style.display = "none";
-    tie.style.display = "none";
+  if (hitTie == 4) {
+    explosionSound.play();
+
+    setTimeout(function() {
+        tie.style.display = "none";
+    }, 1000);
+    tie.src = "img/explosion.gif";
+
+    deathStarLocked = false;
+    hitTie = 0;
+    /* reset de aantal schoten */
+  }
+}
+function hitTieTwo() {
+  hitTie++;
+  if (hitTie == 6) {
+    explosionSound.play();
+
+    setTimeout(function() {
+        tie2.style.display = "none";
+    }, 1000);
+    tie2.src = "img/explosion.gif";
+
+    deathStarLocked = false;
+    hitTie = 0;
+    /* reset de aantal schoten */
+  }
+}
+function hitTieThree() {
+  hitTie++;
+  if (hitTie == 8) {
+    explosionSound.play();
+    tie3.src = "img/explosion.gif";
+
+    setTimeout(function() {
+        tie3.style.display = "none";
+    }, 1000);
+
     deathStarLocked = false;
     hitTie = 0;
     /* reset de aantal schoten */

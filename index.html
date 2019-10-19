@@ -11,17 +11,17 @@
 
   <div id="container" onclick="play()">
     <h1>Destroy the Death Star</h1>
-    <h4>You have 10 seconds to destroy the death by clicking it</h4>
+    <h4>You have 15 seconds to destroy the death by clicking it</h4>
     <h4>He may be protected by tie fighters..oops</h4>
     <button id="start" onclick="startGame()">
       START GAME
     </button>
-    <p id="clock">10</p>
+    <p id="timer"></p>
     <img id="shoot" src="img/shoot.gif" alt="">
     <div id="enemies">
-      <img id="tie-fighter" class="fighter" src="img/tie-fighter.png" onClick="hitTarget()">
-      <img id="tie-fighter2" class="fighter" src="img/tie-fighter2.png" onClick="hitTarget()">
-      <img id="tie-fighter3" class="fighter" src="img/tie-fighter3.png" onClick="hitTarget()">
+      <img id="tie-fighter" class="fighter" src="img/tie-fighter.png" onClick="hitTieOne()">
+      <img id="tie-fighter2" class="fighter" src="img/tie-fighter2.png" onClick="hitTieTwo()">
+      <img id="tie-fighter3" class="fighter" src="img/tie-fighter3.png" onClick="hitTieThree()">
       <img id="deathStar" src="img/deathStar.png" alt="death star" onClick="shoot()">
       <h2 id="status"></h2>
       <div id="health-container">
@@ -39,7 +39,7 @@
   <audio id="laser">
     <source src="audio/laser.wav" type="audio/mpeg">
   </audio>
-  <audio id="explosion">
+  <audio id="explosionMusic">
     <source src="audio/explosion.wav" type="audio/mpeg">
   </audio>
   <audio id="victoryMusic">
