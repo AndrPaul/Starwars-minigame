@@ -22,6 +22,7 @@ box-sizing: border-box;
     font-weight: bold;
     font-family: Impact;
     font-weight: bold;
+
 }
 #enemies {
   position: relative;
@@ -41,10 +42,15 @@ button {
   border-radius: 10px;
   font-weight: bold;
   font-family: verdana;
-  border: 2px solid #861f1f;
+  border: none;
+  box-shadow: 0px 3px #861f1f;
   cursor: url("../img/cursor.png"), auto;
 }
-
+button:hover {
+  background-color: #861f1f;
+  box-shadow: 0px 3px #FEE400;
+  color: #FEE400;
+}
 body {
 
     cursor: url("../img/cursor.png"), auto;
@@ -73,14 +79,46 @@ body {
   position: absolute;
   top: 0;
   left: 100px;
-  width: 210px;
   display: none;
+  text-align: center;
   overflow: hidden;
   z-index: 2;
+  width: 250px;
+  color: white;
+  font-size: 25px;
+  padding-top: 50px;
+  text-shadow: none ;
 
 }
+.fighter img {
+  width: 230px;
+}
+.healthTieContainer {
+  background: url('../img/hearth.png');
+  background-size:cover;
+  background-repeat: no-repeat;
+  height:45px;
+  width:45px;
+  text-align: center;
+  font-size: 15px;
+  position: absolute;
 
-
+}
+#positionHTC1 {
+  left: 102px;
+  top: 20px;
+  line-height: 1;
+}
+#positionHTC2 {
+  left: 105px;
+  top: 75px;
+  line-height: 1;
+}
+#positionHTC3 {
+  left: 90px;
+  top: 100px;
+  line-height: 1;
+}
 #tie-fighter {
 
 }
@@ -89,8 +127,15 @@ body {
   position: absolute;
   top: 0;
   left: 110px;
-    height: 300px;
-    z-index: 1;
+  height: 0px;
+  width: 0px;
+  z-index: 1;
+}
+.rotateLoop {
+  -webkit-animation-name:            rotate;
+  -webkit-animation-duration:        20s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
 }
 
 #health-container {
@@ -102,16 +147,46 @@ body {
     border-radius: 10px;
     left: 155px;
     bottom: 0;
+    display: none;
 }
 
 #health-bar {
     width: 100%;
     height: 25px;
-    background: linear-gradient(90deg, rgba(45,121,9,1) 0%, rgba(155,255,0,1) 100%);;
+    background: linear-gradient(90deg, rgba(45,121,9,1) 0%, rgba(155,255,0,1) 100%);
     border-radius: 10px;
 
 }
 
 #status {
   font-family: verdana;
+}
+.shake {
+  animation: shake 0.6s;
+  animation-iteration-count: infinite;
+}
+
+
+ @-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }

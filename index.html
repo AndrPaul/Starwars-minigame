@@ -9,24 +9,39 @@
 
 <body>
 
-  <div id="container" onclick="play()">
+  <div id="container">
     <h1>Destroy the Death Star</h1>
     <h4>You have 15 seconds to destroy the death by clicking it</h4>
     <h4>He may be protected by tie fighters..oops</h4>
     <button id="start" onclick="startGame()">
       START GAME
     </button>
-    <p id="timer"></p>
+    <p id="timer">GOOD LUCK!</p>
     <img id="shoot" src="img/shoot.gif" alt="">
     <div id="enemies">
-      <img id="tie-fighter" class="fighter" src="img/tie-fighter.png" onClick="hitTieOne()">
-      <img id="tie-fighter2" class="fighter" src="img/tie-fighter2.png" onClick="hitTieTwo()">
-      <img id="tie-fighter3" class="fighter" src="img/tie-fighter3.png" onClick="hitTieThree()">
+      <div id="tie-fighter" class="fighter">
+        <div id="positionHTC1" class="healthTieContainer">
+          <p id="healthTie1"></p>
+        </div>
+        <img id="tie1img" src="img/tie-fighter.png" onClick="hitTieOne()">
+
+      </div>
+      <div id="tie-fighter2" class="fighter">
+        <div id="positionHTC2" class="healthTieContainer">
+          <p id="healthTie2"></p>
+        </div>
+        <img id="tie2img" src="img/tie-fighter2.png" onClick="hitTieTwo()">
+      </div>
+      <div id="tie-fighter3" class="fighter">
+        <div id="positionHTC3" class="healthTieContainer">
+          <p id="healthTie3"></p>
+        </div>
+        <img id="tie3img" src="img/tie-fighter3.png" onClick="hitTieThree()">
+      </div>
       <img id="deathStar" src="img/deathStar.png" alt="death star" onClick="shoot()">
       <h2 id="status"></h2>
       <div id="health-container">
-        <div id="health-bar">
-        </div>
+        <div id="health-bar"></div>
       </div>
 
     </div>
@@ -35,7 +50,9 @@
 
 
   </div>
-
+  <audio id="impact">
+    <source src="audio/impact.wav" type="audio/mpeg">
+  </audio>
   <audio id="laser">
     <source src="audio/laser.wav" type="audio/mpeg">
   </audio>
@@ -50,6 +67,10 @@
   </audio>
 
   <script src="js/game.js"></script>
+
+
+
+
 </body>
 
 </html>
